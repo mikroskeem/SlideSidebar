@@ -1,0 +1,18 @@
+# IntelliJ IDEA
+*.iml
+.idea/
+out/
+
+# Maven
+target/
+dependency-reduced-pom.xml
+
+# Gradle
+!gradle-wrapper.jar
+.gradle/
+build/
+*/build/
+
+# LiteLoader/Forge
+run/
+build.number

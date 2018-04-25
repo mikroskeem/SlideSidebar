@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.5.3",
+  "compatibilityLevel": "JAVA_8",
+  "package": "eu.mikroskeem.slidesidebar.mixins",
+  "refmap": "mixins.slidesidebar.refmap.json",
+  "mixins": [
+    "MixinGuiIngame"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
