@@ -61,19 +61,19 @@ public final class LiteModSlideSidebar implements LiteMod, Configurable, Tickabl
 
     @Expose
     @SerializedName("hide_sidebar")
-    boolean hideSidebar;
+    boolean hideSidebar = false;
 
     @Expose
     @SerializedName("hide_scores")
-    boolean hideScores;
+    boolean hideScores = false;
 
     @Expose
     @SerializedName("add_x")
-    int addX;
+    int addX = 0;
 
     @Expose
     @SerializedName("add_y")
-    int addY;
+    int addY = 0;
 
     public LiteModSlideSidebar() {
         instance = this;
