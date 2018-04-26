@@ -1,2 +1,6 @@
 key.categories.slidesidebar=SlideSidebar-related keys
 key.slidesidebar.settings=Settings GUI
+
+slidesidebar.gui.settings.displayScoreboard=Display: %s
+slidesidebar.gui.settings.displayScores=Scores: %s
+slidesidebar.gui.settings.resetPosition=Reset position

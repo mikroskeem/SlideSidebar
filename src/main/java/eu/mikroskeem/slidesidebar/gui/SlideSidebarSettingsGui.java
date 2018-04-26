@@ -28,6 +28,7 @@ package eu.mikroskeem.slidesidebar.gui;
 import eu.mikroskeem.slidesidebar.LiteModSlideSidebar;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 
 import java.io.IOException;
 
@@ -51,9 +52,12 @@ public final class SlideSidebarSettingsGui extends GuiScreen {
 
     @Override
     public void initGui() {
-        this.buttonList.add(new GuiButton(1, this.width / 2 - 100, this.height / 6 + 144, "Display: " + (!this.mod.getConfig().shouldHideSidebar() ? "Yes" : "No")));
-        this.buttonList.add(new GuiButton(2, this.width / 2 - 100, this.height / 6 + 120, "Scores: " + (!this.mod.getConfig().shouldHideScores() ? "Yes" : "No")));
-        this.buttonList.add(new GuiButton(3, this.width / 2 - 100, this.height / 6 + 96, "Reset Position"));
+        this.buttonList.add(new GuiButton(1, this.width / 2 - 100, this.height / 6 + 144,
+                I18n.format("slidesidebar.gui.settings.displayScoreboard", !this.mod.getConfig().shouldHideSidebar() ? I18n.format("gui.yes") : I18n.format("gui.no"))));
+        this.buttonList.add(new GuiButton(2, this.width / 2 - 100, this.height / 6 + 120,
+                I18n.format("slidesidebar.gui.settings.displayScores", !this.mod.getConfig().shouldHideScores() ? I18n.format("gui.yes") : I18n.format("gui.no"))));
+        this.buttonList.add(new GuiButton(3, this.width / 2 - 100, this.height / 6 + 96,
+                I18n.format("slidesidebar.gui.settings.resetPosition")));
     }
 
     @Override
@@ -65,12 +69,14 @@ public final class SlideSidebarSettingsGui extends GuiScreen {
             case 1:
                 // Display
                 this.mod.getConfig().setShouldHideSidebar(!this.mod.getConfig().shouldHideSidebar());
-                guiButton.displayString = "Display: " + (!this.mod.getConfig().shouldHideSidebar() ? "Yes" : "No");
+                guiButton.displayString = I18n.format("slidesidebar.gui.settings.displayScoreboard",
+                        !this.mod.getConfig().shouldHideSidebar() ? I18n.format("gui.yes") : I18n.format("gui.no"));
                 break;
             case 2:
                 // Scores
                 this.mod.getConfig().setShouldHideScores(!this.mod.getConfig().shouldHideScores());
-                guiButton.displayString = "Scores: " + (!this.mod.getConfig().shouldHideScores() ? "Yes" : "No");
+                guiButton.displayString = I18n.format("slidesidebar.gui.settings.displayScores",
+                        !this.mod.getConfig().shouldHideScores() ? I18n.format("gui.yes") : I18n.format("gui.no"));
                 break;
             case 3:
                 // Reset
