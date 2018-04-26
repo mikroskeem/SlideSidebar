@@ -77,7 +77,6 @@ public final class LiteModSlideSidebar implements LiteMod, Configurable, Tickabl
 
     public LiteModSlideSidebar() {
         instance = this;
-        config = new SlideSidebarConfig();
     }
 
     @Override
@@ -99,6 +98,7 @@ public final class LiteModSlideSidebar implements LiteMod, Configurable, Tickabl
     @Override
     public void init(@Nonnull File configPath) {
         logger.info("Hello World!");
+        config = new SlideSidebarConfig();
         LiteLoader.getInput().registerKeyBinding(configKeyBinding);
     }
 
