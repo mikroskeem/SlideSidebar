@@ -36,6 +36,7 @@ import com.mumfrey.liteloader.modconfig.ConfigStrategy;
 import com.mumfrey.liteloader.modconfig.ExposableOptions;
 import eu.mikroskeem.slidesidebar.gui.SlideSidebarSettingsGui;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.KeyBinding;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -51,7 +52,7 @@ import java.io.File;
 public final class LiteModSlideSidebar implements LiteMod, Configurable, Tickable {
     private static LiteModSlideSidebar instance;
 
-    private final static KeyBinding configKeyBinding = new KeyBinding("key.slidesidebar.settings",
+    private KeyBinding configKeyBinding = new KeyBinding("key.slidesidebar.settings",
             Keyboard.KEY_NONE, "key.categories.slidesidebar");
 
     private Logger logger = LogManager.getLogger(LiteModSlideSidebar.class);
@@ -112,14 +113,7 @@ public final class LiteModSlideSidebar implements LiteMod, Configurable, Tickabl
         if(!inGame)
             return;
 
-        if(minecraft.currentScreen instanceof SlideSidebarSettingsGui) {
-            // If client has configuration gui opened, handle input
-            try {
-                minecraft.currentScreen.handleInput();
-            } catch (Exception e) {
-                logger.warn("Failed to invoke Minecraft#currentScreen#handleInput()", e);
-            }
-        } else if(config.shouldShowGui()) {
+        if(config.shouldShowGui()) {
             // If mod should show gui, open it
             minecraft.displayGuiScreen(new SlideSidebarSettingsGui(this));
             config.setShowGui(false);
